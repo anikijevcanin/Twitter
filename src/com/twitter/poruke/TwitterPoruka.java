@@ -1,4 +1,5 @@
 package com.twitter.poruke;
+
 /** Predstavlja jednu Twitter poruku
   *@author Anisja Kijevcanin
   *@version 0.1

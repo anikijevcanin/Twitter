@@ -32,7 +32,7 @@ public class TwitterPoruka {
 			throw new RuntimeException( "Poruka mora biti uneta i mora imati najvise 140 znakova");  
 		this.poruka = poruka; 
 	}  
-	/** Overwritten metoda koja ispisuje ime korisnika i njegovu poruku 
+	/** Overwritten metoda toString koja ispisuje ime korisnika i njegovu poruku 
 	 * @return korisnik i poruka kao String*/
 	public String toString(){ 
 		return "KORISNIK:"+korisnik+" PORUKA:"+poruka; 

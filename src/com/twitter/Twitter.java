@@ -15,7 +15,7 @@ public class Twitter {
 	 */
 	 private LinkedList<TwitterPoruka> poruke = new LinkedList<TwitterPoruka>(); 
 	 /**
-	  * Metoda koja vraca sve poruka iz liste poruke
+	  * Metoda koja vraca sve poruke iz liste poruka
 	  * @return lista objekata TwitterPoruka
 	  */
 	 public LinkedList<TwitterPoruka> vratiSvePoruke() { 
@@ -28,9 +28,15 @@ public class Twitter {
 	  * @param poruka koju je napisao korisnik
 	  */
 	 public void unesi(String korisnik, String poruka) { 
+		 if(korisnik == null || korisnik =="" || poruka == null || poruka == "")
+			 throw new RuntimeException("Korisnik i poruka ne smeju biti null ili prazan String");
 		 TwitterPoruka tp = new TwitterPoruka(); 
 		 tp.setKorisnik(korisnik); 
-		 tp.setPoruka(poruka);  
+		 tp.setPoruka(poruka);
+		 for (int i = 0; i < poruke.size(); i++) {
+			if(poruke.get(i).getKorisnik() == korisnik && poruke.get(i).getPoruka() == poruka)
+				throw new RuntimeException("Data poruka vec postoji u listi.");
+		}
 		 poruke.addLast(tp);
 		 }  
 	 /**
@@ -47,8 +53,8 @@ public class Twitter {
 		 TwitterPoruka[] rezultat = new TwitterPoruka[maxBroj];
 		 for (int i = 0; i < poruke.size(); i++) 
 		 if (poruke.get(i).getPoruka().indexOf(tag)!=-1) 
-			 if (brojac < maxBroj){ 
-				 rezultat[brojac+1]=poruke.get(i); 
+			 if (brojac < maxBroj) { 
+				 rezultat[brojac]=poruke.get(i); 
 				 brojac++; 
 				 } else break;  
 		 return rezultat;

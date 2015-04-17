@@ -26,6 +26,7 @@ public class Twitter {
 	  * na poslednje mesto
 	  * @param korisnik koji pise poruku
 	  * @param poruka koju je napisao korisnik
+	  * @throws java.lang.RuntimeException ako je unet korisnik ili poruka null ili prazan String
 	  */
 	 public void unesi(String korisnik, String poruka) { 
 		 if(korisnik == null || korisnik =="" || poruka == null || poruka == "")
@@ -45,6 +46,7 @@ public class Twitter {
 	  * @param maxBroj je kapacitet novog niza poruka
 	  * @param tag je String koji zelimo da se javi u svakoj poruci novog niza
 	  * @return niz objekata TwitterPoruka koji ispunjavaju date parametre
+	  * @throws java.lang.RuntimeException ako je unet tag null ili prazan String
 	  */
 	 public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
 		 if (tag==null || tag.isEmpty()) throw new RuntimeException("Morate uneti tag"); 

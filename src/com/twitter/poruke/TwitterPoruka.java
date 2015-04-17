@@ -16,7 +16,9 @@ public class TwitterPoruka {
 		return korisnik; 
 	} 
 	/** Metoda koja postavlja ime korisnika 
-	 * @param Ime novog korisnika*/
+	 * @param Ime novog korisnika
+	 * @throws java.lang.RuntimeException ako je unet korisnik null ili prazan String
+	 */
 	 public void setKorisnik(String korisnik) { 
 		 if (korisnik==null || korisnik.equals("")) throw new RuntimeException( "Ime korisnika mora biti uneto");  
 		 	this.korisnik = korisnik; 
@@ -27,7 +29,9 @@ public class TwitterPoruka {
 		return poruka; 
 	}  
 	/** Metoda koja vraca atribut korisnik 
-	 * @param sadrzaj nove poruke*/
+	 * @param sadrzaj nove poruke
+	 * @throws java.lang.RuntimeException ako je uneta poruka null ili duza od 140 znakova
+	 */
 	public void setPoruka(String poruka) { 
 		if (poruka==null || poruka.length()>140) 
 			throw new RuntimeException( "Poruka mora biti uneta i mora imati najvise 140 znakova");  
